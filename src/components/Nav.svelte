@@ -5,11 +5,23 @@
 
 <style>
 
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 1rem 2rem;
+  }
+
+  li + li {
+    margin-left: 1rem;
+  }
+
   li a {
     position: relative;
   }
 
-  [aria-current]:after {
+  li a [aria-current]:after {
     content: '<--';
     position: absolute;
     white-space: nowrap;
