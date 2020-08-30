@@ -38,19 +38,10 @@
 
 </script>
 
-<style>
-  canvas {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-</style>
-
-<div aria-hidden="true">
-  <canvas
-    bind:this={canvasEl}
-    width="400"
-    height="600"
-    style={style}
-  />
-</div>
+<canvas
+  bind:this={canvasEl}
+  width="400"
+  height="600"
+  style={style}
+  aria-hidden="true"
+/>

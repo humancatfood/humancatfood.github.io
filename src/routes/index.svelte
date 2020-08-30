@@ -1,12 +1,22 @@
 <style>
+
   h1 {
-    padding: 2rem;
-    top: 30%;
+    margin-top: 15%;
   }
+
+  h2 {
+    margin-top: 2rem;
+  }
+
+  h1, h2 {
+    padding-right: 20%;
+  }
+
 </style>
 
 <svelte:head>
-  <title>Home</title>
+  <title>HumanCatfood - Home</title>
 </svelte:head>
 
-<h1>Hi, I'm Jan. I am a web developer based in London, UK</h1>
+<h1>Hi, I'm Jan</h1>
+<h2>I am a web developer based in London, UK</h2>

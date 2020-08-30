@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>About</title>
+  <title>HumanCatfood - About</title>
 </svelte:head>
 
 <p>
