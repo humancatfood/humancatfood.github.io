@@ -1,6 +1,6 @@
 <script>
   import Nav from '../components/Nav.svelte';
-  import Tree from '../components/Tree.svelte';
+  import Tree from '../components/Tree/index.svelte';
   export let segment;
 </script>
 
