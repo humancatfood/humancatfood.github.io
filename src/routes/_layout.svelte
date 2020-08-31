@@ -1,5 +1,5 @@
 <script>
-  import NavLinks from '../components/NavLinks.svelte';
+  import NavLinks from '../components/NavLinks/index.svelte';
   import Tree from '../components/Tree/index.svelte';
   export let segment;
 </script>
