@@ -41,5 +41,8 @@
     {href}
   >
     <slot></slot>
-    <svg bind:this={svg}></svg>
+    <svg
+      aria-hidden={true}
+      bind:this={svg}
+    />
   </a>
