@@ -23,7 +23,7 @@
             startY: canvasEl.height,
             step: 50 / Math.pow(2, i),
             lineWidth: iterations / Math.pow(2, i),
-            strokeStyle: `rgba(0,0,0,${0.25 + (0.75 / iterations) / Math.pow(2, i)})`,
+            strokeStyle: `rgba(10, 17, 23, ${0.25 + (0.75 / iterations) / Math.pow(2, i)})`,
           });
           renderInner(i + 1);
         });

@@ -15,6 +15,7 @@
     for (const y of lines) {
       svg.appendChild(rc.line(0, y, width, y, {
         roughness: 0.5,
+        stroke: '#232C11',
       }));
     }
   });

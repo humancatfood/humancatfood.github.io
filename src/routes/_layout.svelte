@@ -5,6 +5,12 @@
 </script>
 
 <style>
+
+  :global(body) {
+    color: #0A1117;
+    background-color: #EEF0EB;
+  }
+
   div {
     height: 100%;
     padding: 2rem;
