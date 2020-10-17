@@ -6,8 +6,13 @@ import glob from 'rollup-plugin-glob';
 import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
+import sveltePreprocess from 'svelte-preprocess';
+import autoprefixer from 'autoprefixer';
 import pkg from './package.json';
+
+
 const {markdown} = require('svelte-preprocess-markdown');
+
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -33,7 +38,15 @@ export default {
         hydratable: true,
         emitCss: true,
         extensions: ['.svelte', '.md'],
-        preprocess: markdown(),
+        preprocess: [
+          markdown(),
+          sveltePreprocess({
+            sourceMap: dev,
+            postcss: {
+              plugins: [autoprefixer],
+            },
+          }),
+        ],
       }),
       resolve({
         browser: true,
@@ -82,7 +95,15 @@ export default {
         hydratable: true,
         dev,
         extensions: ['.svelte', '.md'],
-        preprocess: markdown(),
+        preprocess: [
+          markdown(),
+          sveltePreprocess({
+            sourceMap: dev,
+            postcss: {
+              plugins: [autoprefixer],
+            },
+          }),
+        ],
       }),
       resolve({
         dedupe: ['svelte'],
