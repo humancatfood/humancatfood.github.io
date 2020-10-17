@@ -1,59 +1,88 @@
+<script context="module">
+  import Icon from 'svelte-awesome/components/Icon.svelte';
+  import spinner from 'svelte-awesome/icons/spinner';
+</script>
+
 <script>
-  import NavLinks from '../components/NavLinks/index.svelte';
-  import Tree from '../components/Tree/index.svelte';
+  import {onMount} from 'svelte';
+  import NavLinks from './_navLinks.svelte';
   export let segment;
+
+  onMount(() => {
+    document.getElementById('page').style.opacity = 1;
+    document.getElementById('loader').remove();
+  });
 </script>
 
 <style>
 
   :global(body) {
     color: #0A1117;
-    background-color: #EEF0EB;
+    background-color: #f5f5f5;
   }
 
-  div {
+  div#page {
     height: 100%;
-    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+
+    opacity: 0;
+    transition: opacity 250ms ease-in;
   }
 
-  nav {
-    flex: 0 0;
-    margin-bottom: 2rem;
+  @media (min-width: 768px) {
+    div#page {
+      padding: 0 2rem;
+    }
   }
 
-  main {
-    flex: 1 0;
+  @media (min-width: 1024px) {
+    div#page {
+      padding: 0 4rem;
+    }
+  }
+
+  header {
+    margin: 2rem 0;
+    position: absolute;
+    z-index: 1;
   }
 
   footer {
-    flex: 0 0;
+    margin: 1rem 0;
   }
 
+  #loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+  }
 </style>
 
-<div>
+<div id="page">
 
-  <nav>
+  <header>
     <NavLinks {segment}/>
-  </nav>
+  </header>
 
   <main>
     <slot></slot>
   </main>
 
   <footer>
-    <Tree
-      style={`
-        position: fixed;
-        bottom: 0;
-        left: 61.80469715698393%;
-        transform: translateX(-50%);
-        opacity: 0.9;
-      `}
-    />
   </footer>
 
+</div>
+
+<div id="loader">
+  <Icon
+    data={spinner}
+    pulse
+    label="loading.."
+    scale=2
+  />
 </div>

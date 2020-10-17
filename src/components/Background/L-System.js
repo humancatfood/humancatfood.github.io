@@ -1,11 +1,10 @@
-export const AXIOM = 'F';
+import memoize from 'lodash/memoize';
 
+export const SAMPLE_AXIOM = 'F+F+F+F'.split('');
 
-export const rules = {
-  F: 'FF+[+F-F-F]-[-F+F+F]'.split(''),
+export const sample_rules = {
+  F: 'F+F-F-FF+F+F-F'.split(''),
 };
-
-
 
 /**
  * turtle
@@ -84,7 +83,25 @@ export function turtle (ctx, sentence, {
 }
 
 
+export const iterate = memoize((sentence, rules) => {
+  return sentence.flatMap(word => rules[word] || word);
+}, (sentence, rules) => JSON.stringify(sentence) + JSON.stringify(rules));
 
-export function iterate (sentence, _rules=rules) {
-  return sentence.flatMap(word => _rules[word] || word);
+
+
+export function render (ctx, startX, startY, iterations=6) {
+
+  let sentence = [SAMPLE_AXIOM];
+  for (let i = 0; i < iterations; i += 1) {
+    sentence = iterate(sentence, sample_rules);
+  }
+
+  turtle(ctx, sentence, {
+    startX,
+    startY,
+    step: 50 / Math.pow(2, iterations),
+    lineWidth: iterations / Math.pow(2, iterations),
+    strokeStyle: `black`,
+    rotation: (Math.PI * 2) / 360 * 90,
+  });
 }
