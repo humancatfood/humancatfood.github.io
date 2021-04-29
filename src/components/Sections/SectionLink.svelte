@@ -29,7 +29,7 @@
 
 <style>
   a {
-    display: inline;
+    display: inline-block;
     position: sticky;
     top: 100%;
     transform: translateY(-100%);

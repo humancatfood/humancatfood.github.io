@@ -1,9 +1,15 @@
+<script context="module">
+  export const META = {
+    slug: '',
+    title: 'back to top',
+  };
+</script>
 
 <script>
   import IconLink, {GITHUB, LINKEDIN} from './../../components/IconLink.svelte';
 </script>
 
-<style lang="scss">
+<style>
 
   .jumbotron {
     height: 100vh;
@@ -41,7 +47,7 @@
   }
 </style>
 
-<div class="jumbotron" id={slug}>
+<div class="jumbotron">
   <h1>Hi, I'm Jan</h1>
   <h2>I am a web developer based in London, UK</h2>
 

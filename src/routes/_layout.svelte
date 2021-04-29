@@ -21,27 +21,14 @@
     background-color: #f5f5f5;
   }
 
-  div#page {
+  #page {
     height: 100%;
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 1rem;
     box-sizing: border-box;
 
     opacity: 0;
     transition: opacity 250ms ease-in;
-  }
-
-  @media (min-width: 768px) {
-    div#page {
-      padding: 0 2rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    div#page {
-      padding: 0 4rem;
-    }
   }
 
   header {
@@ -60,6 +47,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.5;
+    transition: opacity 250ms ease-in;
   }
 </style>
 

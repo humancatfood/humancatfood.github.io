@@ -11,6 +11,12 @@ I am a full-stack developer specialising in front-end but have plenty of general
 
 I strive to balance creativity, pragmatism and expertise.
 
+
+
+
+
+
+
 ### skills:
 
 *stuff I use all the time (key-skills):*
