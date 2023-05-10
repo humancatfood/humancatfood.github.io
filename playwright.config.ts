@@ -6,7 +6,8 @@ const config: PlaywrightTestConfig = {
 		port: 4173
 	},
 	testDir: 'tests',
-	testMatch: /(.+\.)?(test|spec)\.[jt]s/
+	testMatch: /(.+\.)?(test|spec)\.[jt]s/,
+	snapshotPathTemplate: '{testDir}/__snapshots__/{testName}{/projectName}{ext}'
 };
 
 export default config;
