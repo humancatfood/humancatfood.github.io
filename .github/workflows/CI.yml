@@ -17,9 +17,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
 
       - name: Lint
         run: yarn lint
@@ -31,6 +32,12 @@ jobs:
         run: |
           yarn test:setup
           yarn test
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
 
       - name: Build
         run: yarn build
