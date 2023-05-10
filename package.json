@@ -8,6 +8,7 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"test:unit": "vitest",
+		"test:setup": "playwright install",
 		"test": "playwright test",
 		"pretypecheck": "svelte-kit sync",
 		"typecheck": "svelte-check",

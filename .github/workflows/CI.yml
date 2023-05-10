@@ -1,4 +1,4 @@
-name: Continuous_Integration
+name: Continuous Integration
 
 on:
   push:
@@ -28,7 +28,9 @@ jobs:
         run: yarn typecheck
 
       - name: Run tests
-        run: yarn test
+        run: |
+          yarn test:setup
+          yarn test
 
       - name: Build
         run: yarn build
