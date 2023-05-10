@@ -1,2 +1,18 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<svelte:head>
+	<title>HumanCatfood</title>
+</svelte:head>
+
+<div class="jumbo">
+	<h1>Hi!</h1>
+	<p>I'm Jan, a web developer based in London, UK</p>
+</div>
+
+<style>
+	.jumbo {
+		--font-size: 1.4em;
+		align-self: center;
+	}
+	h1 {
+		margin-bottom: calc(var(--typography-spacing-vertical) * 0.5);
+	}
+</style>
