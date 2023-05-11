@@ -1,5 +1,5 @@
 <script>
-	import IconLink from '../components/IconLink.svelte';
+	import IconLink from '$lib/IconLink.svelte';
 	import { githubAlt as githubIcon, linkedin as linkedinIcon } from 'svelte-awesome/icons';
 </script>
 
