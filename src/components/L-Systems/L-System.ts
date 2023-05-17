@@ -1,5 +1,3 @@
-import memoize from 'lodash/memoize'
-
 export type Sentence = string[]
 
 export type RuleSet = Record<string, Sentence>
@@ -92,10 +90,8 @@ export function turtle(
   ctx.stroke()
 }
 
-export const iterate = memoize(
-  (sentence: Sentence, rules: RuleSet) => sentence.flatMap((word) => rules[word] || word),
-  (sentence: Sentence, rules: RuleSet) => JSON.stringify(sentence) + JSON.stringify(rules),
-)
+export const iterate = (sentence: Sentence, rules: RuleSet) =>
+  sentence.flatMap((word) => rules[word] || word)
 
 export function render(
   ctx: CanvasRenderingContext2D,

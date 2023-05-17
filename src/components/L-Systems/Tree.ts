@@ -1,9 +1,9 @@
 import { iterate, turtle, type Sentence, type TurtleOptions, type RuleSet } from './L-System'
 
-export const AXIOM: Sentence = 'F'
+export const AXIOM: Sentence = ['F']
 
 export const rules: RuleSet = {
-  F: 'FF+[+F-F-F]-[-F+F+F]', //.split(''),
+  F: 'FF+[+F-F-F]-[-F+F+F]'.split(''),
 }
 
 export function render(

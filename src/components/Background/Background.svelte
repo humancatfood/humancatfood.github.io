@@ -15,12 +15,9 @@
 
     requestAnimationFrame(() => {
       const color = getComputedStyle(document.documentElement).getPropertyValue('--contrast')
-      // console.log('starting tree:')
-      // console.time('tree')
+      // renderFern(ctx, width / 1.618, height, 6, color, height * 0.75)
+      // renderFernRight(ctx, width / 1.618, height, 6, color, height * 0.75)
       renderTree(ctx, width / 1.618, height, 7, color, height * 0.75)
-      // console.timeEnd('tree')
-      // renderFern(ctx, w * 0.2, h, color, 5)
-      // renderFernRight(ctx, width / 1.618, height, 5, color)
     })
   }
 
