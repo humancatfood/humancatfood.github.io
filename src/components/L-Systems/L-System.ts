@@ -17,6 +17,7 @@ export type TurtleOptions = {
   lineWidth?: number
   strokeStyle?: CanvasRenderingContext2D['strokeStyle']
   rotation?: number
+  opacity?: number
 }
 
 export function turtle(
@@ -28,7 +29,8 @@ export function turtle(
     step = 100,
     rotation = ((Math.PI * 2) / 360) * 25,
     lineWidth = 1,
-    strokeStyle = '#000',
+    strokeStyle = 'rgb(10, 17, 23)',
+    opacity = 1,
   }: TurtleOptions,
 ) {
   let x = startX
@@ -48,6 +50,7 @@ export function turtle(
 
   ctx.lineWidth = lineWidth
   ctx.strokeStyle = strokeStyle
+  ctx.globalAlpha = opacity
 
   for (const word of sentence) {
     switch (word) {

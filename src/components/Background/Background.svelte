@@ -2,23 +2,25 @@
   import { onMount } from 'svelte'
   // import rough from 'roughjs/bundled/rough.esm';
 
-  import { render as renderTree } from './tree'
-  import { render as renderFern } from './Fern'
-  import { render as renderFernRight } from './FernRight'
+  import { renderTree, renderFern, renderFernRight } from '../L-Systems'
 
   let canvasEl: HTMLCanvasElement
 
   function render() {
-    const w = (canvasEl.width = window.innerWidth)
-    const h = (canvasEl.height = window.innerHeight)
+    const width = (canvasEl.width = window.innerWidth)
+    const height = (canvasEl.height = window.innerHeight)
     const ctx = canvasEl.getContext('2d')
 
     if (!ctx) throw new Error('No canvas context')
 
     requestAnimationFrame(() => {
-      // renderFern(ctx, w * 0.25, h, { r: 255, g: 255, b: 255 }, 5)
-      // renderTree(ctx, w / 1.618, h, { r: 255, g: 255, b: 255 }, 5)
-      renderFernRight(ctx, w / 1.618, h, { r: 255, g: 255, b: 255 }, 5)
+      const color = getComputedStyle(document.documentElement).getPropertyValue('--contrast')
+      // console.log('starting tree:')
+      // console.time('tree')
+      renderTree(ctx, width / 1.618, height, 7, color, height * 0.75)
+      // console.timeEnd('tree')
+      // renderFern(ctx, w * 0.2, h, color, 5)
+      // renderFernRight(ctx, width / 1.618, height, 5, color)
     })
   }
 

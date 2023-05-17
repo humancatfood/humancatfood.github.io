@@ -1,8 +1,8 @@
-import { iterate, turtle } from './L-System'
+import { iterate, turtle, type Sentence, type TurtleOptions, type RuleSet } from './L-System'
 
-export const AXIOM = 'F'
+export const AXIOM: Sentence = ['F']
 
-export const rules = {
+export const rules: RuleSet = {
   F: 'FF+[+F-F-F]-[-F+F+F]'.split(''),
 }
 
@@ -10,11 +10,12 @@ export function render(
   ctx: CanvasRenderingContext2D,
   rootX: number,
   rootY: number,
-  { r, g, b }: { r: number; g: number; b: number },
   numIterations: number = 5,
+  color: TurtleOptions['strokeStyle'],
+  height?: number,
 ) {
-  let sentence: string[] = [AXIOM]
-  const baseStep = ctx.canvas.height / 8
+  let sentence = AXIOM
+  const baseStep = (height ?? ctx.canvas.height) / 8
   const renderInner = (iterations: number, i: number = 0) => {
     sentence = iterate(sentence, rules)
     const modifier = Math.pow(2, i)
@@ -26,7 +27,8 @@ export function render(
         startY: rootY,
         step: baseStep / modifier,
         lineWidth: iterations / modifier,
-        strokeStyle: `rgba(${r ?? 10}, ${g ?? 17}, ${b ?? 23}, ${scale(0.33, 1.0)})`,
+        strokeStyle: color,
+        opacity: scale(0.33, 1.0),
       })
 
       renderInner(iterations, i + 1)
