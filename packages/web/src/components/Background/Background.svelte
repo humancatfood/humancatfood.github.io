@@ -28,7 +28,7 @@
   })
 </script>
 
-<canvas bind:this={canvasEl} aria-hidden="true" />
+<canvas bind:this={canvasEl} aria-hidden="true"></canvas>
 
 <style>
   canvas {
