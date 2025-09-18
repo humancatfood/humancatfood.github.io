@@ -1,11 +1,41 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
-
-	let { children } = $props();
+	import { githubAlt as githubIcon, linkedin as linkedinIcon } from 'svelte-awesome/icons';
+	import IconLink from '../components/IconLink.svelte';
+	import Background from '../components/Background';
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<title>HumanCatfood</title>
 </svelte:head>
 
-{@render children?.()}
+<Background />
+
+<main class="container">
+	<slot />
+</main>
+
+<style>
+	:global(html, body) {
+		height: 100%;
+	}
+
+	:global(#root) {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	/* .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  } */
+
+	main {
+		flex: 1;
+		display: grid;
+	}
+</style>
