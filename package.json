@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "packages/*"
+    "web"
   ],
   "scripts": {
     "dev": "yarn workspace web dev",
