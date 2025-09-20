@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "web"
+    "web",
+    "l-system-worker"
   ],
   "scripts": {
     "dev": "yarn workspace web dev",
@@ -16,11 +17,12 @@
     "pretypecheck": "yarn workspace web-app pretypecheck",
     "typecheck": "yarn workspace web-app typecheck",
     "lint": "yarn workspace web-app lint",
-    "clean": "yarn workspaces foreach -A run clean",
+    "clean": "yarn workspaces run clean && rm -rf {build,node_modules}",
     "install:all": "yarn install"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "wasm-pack": "^0.13.1"
   },
   "packageManager": "yarn@1.22.22"
 }
