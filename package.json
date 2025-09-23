@@ -1,5 +1,5 @@
 {
-  "name": "humancatfood-monorepo",
+  "name": "@humancatfood/root",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
     "l-system-worker"
   ],
   "scripts": {
-    "dev": "yarn workspace web dev",
+    "dev": "yarn workspaces run --parallel dev",
     "build": "yarn workspace web build",
     "preview": "yarn workspace web-app preview",
     "test:unit": "yarn workspace web-app test:unit",
