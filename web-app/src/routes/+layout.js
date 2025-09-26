@@ -1,4 +1,11 @@
-import pkg from '../../package.json';
+import
+ pkg from '../../package.json';
+
+// import worker from '@humancatfood/l-system-worker';
+
+// console.log({ worker });
+
+// worker.greet();
 
 console.log(
 	`%c${pkg.name}%c v%c${pkg.version}`,

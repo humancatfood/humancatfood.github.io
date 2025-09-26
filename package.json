@@ -1,14 +1,13 @@
 {
-  "name": "@humancatfood/root",
+  "name": "humancatfood.github.io",
   "version": "0.0.1",
   "private": true,
   "type": "module",
   "workspaces": [
-    "web",
-    "l-system-worker"
+    "web-app"
   ],
   "scripts": {
-    "dev": "yarn workspaces run --parallel dev",
+    "dev": "yarn workspaces run dev",
     "build": "yarn workspace web build",
     "preview": "yarn workspace web-app preview",
     "test:unit": "yarn workspace web-app test:unit",
