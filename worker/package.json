@@ -1,0 +1,29 @@
+{
+  "name": "worker",
+  "version": "0.0.0",
+  "private": true,
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "wasm-pack": "^0.13.1"
+  },
+  "scripts": {
+    "dev": "nodemon --watch src --ext rs --exec \"yarn build:dev\"",
+    "build:dev": "wasm-pack build --no-pack --out-name index --dev --out-dir dist",
+    "build": "wasm-pack build --no-pack --out-name index  --out-dir dist",
+    "test": "yarn test:engine && yarn test:integration",
+    "test:engine": "cargo test",
+    "test:integration": "wasm-pack test --node",
+    "tdd:engine": "cargo watch -w src -w tests -x test",
+    "tdd:integration": "cargo watch -w src -w tests -s 'yarn test:integration'",
+    "postinstall": "yarn build:dev",
+    "clean": "rm -rf pkg target dist node_modules"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

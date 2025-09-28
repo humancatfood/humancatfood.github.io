@@ -2,13 +2,19 @@
   "name": "humancatfood.github.io",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
   "workspaces": [
-    "web-app"
+    "web-app",
+    "worker"
   ],
   "scripts": {
-    "dev": "yarn workspaces run dev",
-    "build": "yarn workspace web build",
+    "dev:worker": "yarn workspace worker run dev",
+    "dev:web-app": "yarn workspace web-app run dev",
+    "dev": "yarn dev:worker && yarn dev:web-app",
+
+    "build:worker": "yarn workspace worker run build",
+    "build:web-app": "yarn workspace web-app run build",
+    "build": "yarn build:worker && yarn build:web-app",
+
     "preview": "yarn workspace web-app preview",
     "test:unit": "yarn workspace web-app test:unit",
     "test:setup": "yarn workspace web-app test:setup",
@@ -20,8 +26,6 @@
     "install:all": "yarn install"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "wasm-pack": "^0.13.1"
-  },
-  "packageManager": "yarn@1.22.22"
+    "typescript": "^5.0.0"
+  }
 }
